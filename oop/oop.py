@@ -31,7 +31,7 @@ class ptn:
         print(f"{self.name} learned {trick}!")
     def show_tricks(self):
         if self.tricks:
-            print(f"{self.name} knows: {', '.join(self.tricks)}")
+            print(f"{self.name} knows: {', '.join(self.tricks)}") #.join() puts , (comma and space) between each item.
         else:
             print(f"{self.name} doesn't know any tricks yet.")
     def get_status(self):
@@ -39,8 +39,16 @@ class ptn:
         print(f"Hunger: {self.hunger}")
         print(f"Energy: {self.energy}")
         print(f"Happiness: {self.happiness}")
-    
-chu=ptn("cat",0,6,5,[]) #chu is my pet name
+
+print("Welcome to the pet simulator!")
+new_name = input("Enter your pet's name: ")
+new_hunger = int(input("Enter your pet's hunger level (0-10): "))
+new_energy = int(input("Enter your pet's energy level (0-10): "))   
+new_happiness = int(input("Enter your pet's happiness level (0-10): "))
+new_tricks = input("Enter your pet's tricks (comma-separated): ").split(",")
+new_tricks = [trick.strip() for trick in new_tricks]  # Remove leading/trailing spaces from each trick
+
+chu=ptn(new_name,new_hunger,new_energy,new_happiness,new_tricks) #chu is my pet name
 chu.eat()
 chu.sleep()
 chu.play()
